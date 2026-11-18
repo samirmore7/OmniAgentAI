@@ -1,194 +1,366 @@
+
 # ✦ OmniAgent AI
-### Multimodal & Multilingual Agentic AI Powered by Gemini, Bodhan AI and MCP
 
-**An intelligent AI agent that understands natural-language instructions, plans multi-step workflows, and performs Indian-language processing using specialized AI tools.**
+### Multimodal & Multilingual Agentic AI Powered by Gemini, Bodhan AI & MCP
 
-[![Python](https://img.shields.io/badge/Python-3.11-blue)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-Web_App-FF4B4B)](https://streamlit.io/)
-[![Gemini](https://img.shields.io/badge/LLM-Gemini_2.5_Flash-4285F4)](https://ai.google.dev/)
-[![MCP](https://img.shields.io/badge/Protocol-MCP-purple)](https://modelcontextprotocol.io/)
-![Status](https://img.shields.io/badge/Status-Deployment_Testing-orange)
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.11-blue?logo=python" />
+  <img src="https://img.shields.io/badge/Streamlit-Live_App-FF4B4B?logo=streamlit" />
+  <img src="https://img.shields.io/badge/LLM-Gemini_2.5_Flash-4285F4" />
+  <img src="https://img.shields.io/badge/Protocol-MCP-8B5CF6" />
+  <img src="https://img.shields.io/badge/Status-Deployed-brightgreen" />
+</p>
 
-### 🌐 Live Application
-
-**[Launch OmniAgent AI](YOUR_STREAMLIT_LIVE_URL)**
-
-**[GitHub Repository](https://github.com/samirmore7/OmniAgentAI)**
-
-> The Streamlit deployment URL must be added after the application is successfully published.
+<p align="center">
+  <a href="https://omniagentai.streamlit.app/">
+    <img src="https://img.shields.io/badge/🚀_Launch_Live_App-Streamlit-FF4B4B?style=for-the-badge" />
+  </a>
+  <a href="https://github.com/samirmore7/OmniAgentAI">
+    <img src="https://img.shields.io/badge/💻_Source_Code-GitHub-181717?style=for-the-badge" />
+  </a>
+</p>
 
 ---
 
-## 📌 Overview
+## 🌐 Live Application
 
-OmniAgent AI is a Python-based multimodal AI application that combines the reasoning capabilities of **Gemini 2.5 Flash** with specialized multilingual services provided by **Bodhan AI**.
+**🚀 [Try OmniAgent AI](https://omniagentai.streamlit.app/)**
 
-Instead of manually selecting individual AI tools, users can describe their task in natural language. OmniAgent determines the required operations, executes them through the **Model Context Protocol (MCP)**, and returns structured results.
+**💻 [GitHub Repository](https://github.com/samirmore7/OmniAgentAI)**
 
-The project provides both a command-line interface and an interactive Streamlit web application.
+OmniAgent AI is a multimodal, multilingual AI agent that combines the reasoning capabilities of **Gemini 2.5 Flash** with specialized Indian-language AI services provided by **Bodhan AI**.
+
+The system understands natural-language instructions, plans multi-step workflows, selects appropriate tools, and executes tasks through the **Model Context Protocol (MCP)**.
+
+Users can interact with the agent through a Streamlit web application or Python CLI.
+
+> **Deployment status:** The Streamlit application has a live deployment URL. End-to-end hosted workflow verification is still pending.
+
+---
+
+## 📌 Problem Statement
+
+Indian-language processing often requires multiple specialized AI services.
+
+For example, extracting Hindi text from an image and translating it into English traditionally involves:
+
+1. Uploading the image to an OCR service.
+2. Copying the extracted text.
+3. Passing the text to a translation service.
+4. Collecting and formatting the results.
+
+This process becomes increasingly complex when combining OCR, translation, speech recognition, and text-to-speech.
+
+**OmniAgent AI solves this problem by orchestrating multiple specialized tools through a single natural-language interface.**
+
+Instead of manually choosing and connecting tools, users describe what they want, and the agent determines how to accomplish it.
+
+---
 
 ## ✨ Key Features
 
-- **Intelligent AI planning:** Gemini interprets user instructions and selects appropriate tools.
-- **Multilingual OCR:** Extract text from supported images using Bodhan AI.
-- **Language translation:** Translate text between supported languages.
-- **Speech transcription:** Convert WAV speech recordings into text.
-- **Text-to-speech:** Generate speech using supported Bodhan AI voices.
-- **Multi-step workflows:** Automatically chain operations such as OCR followed by translation.
-- **MCP integration:** Communicate with specialized AI tools through a local MCP server.
-- **Interactive Streamlit UI:** Upload files, enter instructions, execute workflows, and view results.
-- **Four interface themes:** Midnight, Aurora, Royal, and Light.
-- **Seven interface languages:** English, Hindi, Marathi, Tamil, Telugu, Bengali, and Kannada, with partial translation fallback.
-- **Execution controls:** Configure planning steps and maximum tool calls.
-- **Retry handling:** Retry supported transient planning and tool failures.
-- **Structured reporting:** Generate JSON reports, Markdown summaries, and JSONL execution traces.
-- **Cost visibility:** Track tool usage while distinguishing known and unknown costs.
+### 🧠 Intelligent Agent Planning
+
+- Uses Gemini 2.5 Flash as the reasoning engine.
+- Understands natural-language instructions.
+- Selects appropriate MCP tools.
+- Supports multi-step task execution.
+- Uses tool responses to determine subsequent actions.
+
+### 🔎 Multilingual OCR
+
+- Extracts text from uploaded images.
+- Supports PNG, JPG, and JPEG uploads.
+- Uses Bodhan AI's OCR capabilities.
+- Returns extracted text as structured output.
+
+### 🌐 Language Translation
+
+- Translates text between supported languages.
+- Supports translation after OCR.
+- Preserves multilingual Unicode output.
+- Uses Bodhan AI translation services.
+
+### 🎙️ Speech Transcription
+
+- Converts supported speech audio into text.
+- Supports WAV uploads through the web interface.
+- Includes audio-processing and chunking capabilities.
+- Uses Bodhan AI speech recognition.
+
+### 🔊 Text-to-Speech
+
+- Integrates Bodhan AI speech generation.
+- Converts supported text into spoken audio.
+- Supports speech-generation workflows through MCP.
+
+### 🔗 Multi-Step Agentic Workflows
+
+OmniAgent can chain specialized tools automatically.
+
+**Example:**
+
+```text
+User Instruction
+      |
+      v
+Extract Hindi text from image
+      |
+      v
+Bodhan OCR
+      |
+      v
+Hindi Text
+      |
+      v
+Bodhan Translation
+      |
+      v
+English Translation
+      |
+      v
+Final Result
+```
+
+### 🖥️ Interactive Streamlit Dashboard
+
+- Modern responsive interface.
+- Four visual themes.
+- Seven interface language options.
+- File upload support.
+- Natural-language task input.
+- Quick-start workflow examples.
+- Configurable execution limits.
+- Step-by-step tool output.
+- Downloadable execution reports.
+
+### 🛡️ Execution Controls
+
+- Maximum planning steps.
+- Maximum tool-call attempts.
+- Retry handling.
+- Tool execution tracking.
+- Budget consumption monitoring.
+- Cost visibility where pricing information is available.
+
+---
 
 ## 🛠️ Technology Stack
 
 | Component | Technology |
 |---|---|
 | Programming Language | Python 3.11 |
-| LLM / Agent Planner | Gemini 2.5 Flash |
-| LLM Integration | OpenAI-compatible API |
-| Multilingual AI Services | Bodhan AI |
+| AI Planner | Gemini 2.5 Flash |
+| LLM API | OpenAI-compatible Gemini endpoint |
+| Multilingual AI | Bodhan AI |
+| Agent Architecture | Tool-calling agent |
 | Tool Communication | Model Context Protocol (MCP) |
-| Web Interface | Streamlit |
-| HTTP Integration | HTTPX |
+| MCP Transport | Local stdio |
+| Web Framework | Streamlit |
+| HTTP Client | HTTPX |
 | Data Validation | Pydantic |
-| Configuration | Environment variables, python-dotenv |
+| Configuration | python-dotenv |
 | Testing | Python regression tests |
 | Reports | JSON, Markdown, JSONL |
-| Deployment Target | Streamlit Community Cloud |
+| Deployment | Streamlit Community Cloud |
+| Version Control | Git & GitHub |
+
+---
 
 ## 🏗️ System Architecture
 
 ```text
-                  USER
-                    |
-          +---------+---------+
-          |                   |
-          v                   v
-    Streamlit UI          Python CLI
-          |                   |
-          +---------+---------+
-                    |
-                    v
-             OmniAgent Core
-                    |
-          +---------+---------+
-          |                   |
-          v                   v
-     Gemini Planner      Budget Manager
-          |                   |
-          +---------+---------+
-                    |
-                    v
-             MCP Client
-                    |
-                    v
-             MCP Server
-                    |
-       +------------+------------+
-       |            |            |
-       v            v            v
-      OCR       Translation    Speech
-       |            |            |
-       +------------+------------+
-                    |
-                    v
-               Bodhan AI
-                    |
-                    v
-              Tool Results
-                    |
-                    v
-            Agent Orchestration
-                    |
-                    v
-          Structured Output
-                    |
-       +------------+------------+
-       |            |            |
-       v            v            v
-   Streamlit      JSON / MD     JSONL
-    Results        Reports      Traces
+                    +--------------------+
+                    |        USER        |
+                    +----------+---------+
+                               |
+                    +----------v---------+
+                    |   Streamlit / CLI  |
+                    +----------+---------+
+                               |
+                    +----------v---------+
+                    |    OmniAgent AI    |
+                    | Agent Orchestrator |
+                    +----------+---------+
+                               |
+                    +----------v---------+
+                    | Gemini 2.5 Flash   |
+                    |  Planning Engine   |
+                    +----------+---------+
+                               |
+                    +----------v---------+
+                    | Tool Selection &   |
+                    | Budget Validation  |
+                    +----------+---------+
+                               |
+                    +----------v---------+
+                    |     MCP Client     |
+                    +----------+---------+
+                               |
+                    +----------v---------+
+                    |  Local MCP Server  |
+                    +----------+---------+
+                               |
+           +-------------------+-------------------+
+           |                   |                   |
+     +-----v------+      +-----v------+      +-----v------+
+     | OCR Tool   |      | Translation|      | Audio Tools|
+     +-----+------+      +-----+------+      +-----+------+
+           |                   |                   |
+           +-------------------+-------------------+
+                               |
+                    +----------v---------+
+                    |     Bodhan AI      |
+                    |   External APIs    |
+                    +----------+---------+
+                               |
+                    +----------v---------+
+                    |   Tool Responses   |
+                    +----------+---------+
+                               |
+                    +----------v---------+
+                    | Agent Continuation |
+                    +----------+---------+
+                               |
+                    +----------v---------+
+                    |  Final Results &   |
+                    | Execution Reports  |
+                    +--------------------+
 ```
 
-### How It Works
+### Architecture Explanation
 
-1. The user submits a natural-language task and uploads supported files.
-2. OmniAgent connects to the Bodhan MCP server.
-3. Gemini analyzes the task and selects an appropriate tool.
-4. The agent validates tool arguments and checks the execution budget.
-5. The MCP server invokes the corresponding Bodhan AI service.
-6. The tool result is returned to OmniAgent.
-7. The agent continues with another tool if required.
-8. Final results and execution reports are generated.
+**1. User Interface**
 
-**Gemini handles planning and orchestration, while Bodhan AI performs specialized multilingual processing.**
+Users submit natural-language instructions through Streamlit or the command-line interface.
 
-## 🔧 Available MCP Tools
+**2. Agent Orchestrator**
 
-| Tool | Function |
+OmniAgent manages the overall workflow, including tool execution and result processing.
+
+**3. Gemini Planner**
+
+Gemini determines which tools are required to complete the requested task.
+
+**4. MCP Client**
+
+The agent communicates with a local MCP server using the Model Context Protocol.
+
+**5. Bodhan MCP Server**
+
+The server exposes specialized multilingual tools to the agent.
+
+**6. Bodhan AI APIs**
+
+The corresponding Bodhan services perform OCR, translation, transcription, and speech generation.
+
+**7. Reporting Layer**
+
+The system records tool results, execution details, budget usage, and structured reports.
+
+---
+
+## 🧰 Available AI Tools
+
+| Tool | Description |
 |---|---|
-| `extract_text` | Extracts text from images using OCR |
-| `translate_text` | Translates text between supported languages |
-| `transcribe_audio` | Converts speech audio into text |
-| `generate_speech` | Generates speech from text |
-| `server_status` | Provides server and configuration status information |
+| `extract_text` | Extract text from an image |
+| `translate_text` | Translate text between supported languages |
+| `transcribe_audio` | Convert speech audio into text |
+| `generate_speech` | Generate speech from text |
 
-Actual language, voice, and file-format support depends on the configured Bodhan AI services.
+The tools are exposed through MCP and selected by the agent based on the user's instructions.
+
+Actual language and voice support depends on the configured Bodhan AI services.
+
+---
 
 ## 🖥️ Streamlit Web Application
 
-The Streamlit interface provides an interactive workspace for using OmniAgent without manually entering CLI commands.
+**Live App:** https://omniagentai.streamlit.app/
 
-### Interface Capabilities
+The Streamlit application provides a user-friendly interface for interacting with OmniAgent AI.
 
-- Natural-language task input
-- PNG, JPG, JPEG, and WAV file uploads
-- Quick-start examples for OCR, translation, and transcription
-- Customizable planning and tool-call limits
-- Four visual themes
-- Multilingual interface options
-- Execution status and metrics
-- Step-by-step tool results
-- Extracted and translated text display
-- Tool activity inspection
-- Downloadable execution reports
+### Dashboard Features
 
-### Run the Web Application Locally
+**1. AI Workspace**
 
-```bash
-python -m streamlit run streamlit_app.py
-```
+Users can enter natural-language instructions describing their desired tasks.
 
-The application will open in your browser, typically at:
+**2. File Upload**
+
+Supported file types:
 
 ```text
-http://localhost:8501
+.png
+.jpg
+.jpeg
+.wav
 ```
 
-## 📁 Project Structure
+The interface allows up to three files per execution, with a maximum size of 15 MB per file.
+
+**3. Quick-Start Examples**
+
+- Extract text from an image.
+- Extract and translate text into English.
+- Transcribe speech from an uploaded WAV file.
+
+**4. Execution Settings**
+
+Users can configure:
+
+- Maximum planning steps.
+- Maximum tool calls.
+
+**5. Results Dashboard**
+
+The dashboard displays:
+
+- Workflow status.
+- Completed steps.
+- Tool-call usage.
+- Execution duration.
+- Final agent output.
+- Individual tool responses.
+- Execution activity.
+
+**6. Reports and Downloads**
+
+Users can download execution results and available reports.
+
+### Supported Interface Themes
+
+- Midnight
+- Aurora
+- Royal
+- Light
+
+### Interface Languages
+
+- English
+- Hindi
+- Marathi
+- Tamil
+- Telugu
+- Bengali
+- Kannada
+
+Some interface labels may fall back to English.
+
+---
+
+## 📂 Project Structure
 
 ```text
 OmniAgentAI/
 │
 ├── src/
+│   │
 │   ├── bodhan_agent/
 │   │   ├── agent.py
 │   │   ├── cli.py
-│   │   ├── audio.py
-│   │   ├── budget.py
-│   │   ├── cost.py
-│   │   ├── files.py
-│   │   ├── planner_retry.py
-│   │   ├── retry.py
-│   │   ├── reporting.py
-│   │   ├── tracing.py
-│   │   ├── transcription.py
-│   │   └── transcription_mcp.py
+│   │   └── ... other agent modules
 │   │
 │   └── bodhan_mcp/
 │       ├── server.py
@@ -198,9 +370,14 @@ OmniAgentAI/
 │       └── tts_tools.py
 │
 ├── tests/
-├── data/
+│
 ├── demo_inputs/
+│   └── sample_ocr.png
+│
 ├── demo_outputs/
+│   ├── report.json
+│   ├── result.md
+│   └── trace.jsonl
 │
 ├── streamlit_app.py
 ├── requirements.txt
@@ -211,87 +388,117 @@ OmniAgentAI/
 └── README.md
 ```
 
+---
+
 ## ⚙️ Installation and Setup
 
 ### Prerequisites
+
+Ensure you have:
 
 - Python 3.11
 - Git
 - Gemini API credentials
 - Bodhan AI API credentials
-- Internet connection
+- Internet access
 
-### 1. Clone the Repository
+### Step 1 — Clone the Repository
 
 ```bash
 git clone https://github.com/samirmore7/OmniAgentAI.git
+
 cd OmniAgentAI
 ```
 
-### 2. Create a Virtual Environment
+### Step 2 — Create a Virtual Environment
 
 ```bash
 python -m venv .venv
 ```
 
-On Windows PowerShell:
+Activate it.
+
+**Windows PowerShell:**
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
 ```
 
-On Linux/macOS:
+**Linux/macOS:**
 
 ```bash
 source .venv/bin/activate
 ```
 
-### 3. Install Dependencies
+### Step 3 — Install Dependencies
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-### 4. Configure Environment Variables
+### Step 4 — Configure API Credentials
 
-Create a `.env` file in the project root using `.env.example` as a reference.
+Create a `.env` file in the project root.
 
 ```dotenv
-# Gemini LLM
+# Gemini Configuration
+
 LLM_API_KEY=your_gemini_api_key
 LLM_BASE_URL=your_existing_llm_base_url
 LLM_MODEL=gemini-2.5-flash
 
-# Bodhan AI
-BODHAN_BASE_URL=your_bodhan_base_url
+# Bodhan AI Configuration
+
+BODHAN_BASE_URL=your_bodhan_api_base_url
+
 BODHAN_OCR_KEY=your_ocr_api_key
 BODHAN_TRANSLATE_KEY=your_translation_api_key
 BODHAN_TRANSCRIBE_KEY=your_transcription_api_key
 BODHAN_SPEAK_KEY=your_speech_api_key
 ```
 
-Use the exact endpoint values required by your API providers.
+Use the exact endpoint values provided by your API services.
 
-**Never commit `.env` or real API credentials to GitHub.**
+**Important:** Never commit your `.env` file or actual API keys to GitHub.
 
-## 🚀 Deployment — Streamlit Community Cloud
+### Step 5 — Launch Streamlit
 
-The application is configured for deployment from GitHub.
+```bash
+python -m streamlit run streamlit_app.py
+```
 
-### Deployment Steps
+Open:
 
-1. Visit [Streamlit Community Cloud](https://share.streamlit.io/).
-2. Sign in with GitHub.
-3. Select the `samirmore7/OmniAgentAI` repository.
-4. Choose the `main` branch.
-5. Set the main file path to `streamlit_app.py`.
-6. Configure API credentials using Streamlit Secrets.
-7. Deploy the application.
-8. Verify OCR, translation, and speech workflows in the hosted environment.
+```text
+http://localhost:8501
+```
+
+You can now access the OmniAgent AI dashboard locally.
+
+---
+
+## 🚀 Cloud Deployment
+
+OmniAgent AI has been deployed to Streamlit Community Cloud.
+
+### Live URL
+
+**https://omniagentai.streamlit.app/**
+
+### Deployment Configuration
+
+| Setting | Value |
+|---|---|
+| Hosting | Streamlit Community Cloud |
+| GitHub Repository | `samirmore7/OmniAgentAI` |
+| Branch | `main` |
+| Entry Point | `streamlit_app.py` |
+| Dependencies | `requirements.txt` |
+| Credentials | Streamlit Secrets |
 
 ### Streamlit Secrets
 
-Add the following entries in your app's Secrets settings:
+Configure the following environment variables in Streamlit Cloud's Secrets settings.
 
 ```toml
 LLM_API_KEY = "YOUR_GEMINI_API_KEY"
@@ -299,27 +506,34 @@ LLM_BASE_URL = "YOUR_LLM_BASE_URL"
 LLM_MODEL = "gemini-2.5-flash"
 
 BODHAN_BASE_URL = "YOUR_BODHAN_BASE_URL"
+
 BODHAN_OCR_KEY = "YOUR_OCR_KEY"
 BODHAN_TRANSLATE_KEY = "YOUR_TRANSLATE_KEY"
 BODHAN_TRANSCRIBE_KEY = "YOUR_TRANSCRIBE_KEY"
 BODHAN_SPEAK_KEY = "YOUR_SPEAK_KEY"
 ```
 
-**Deployment note:** The backend uses a local MCP subprocess, so successful cloud execution also depends on Linux compatibility, subprocess startup, and the availability of required packages and credentials.
+Do not place real credentials in your repository.
 
-## 🧪 Verified Demonstration
+The application uses a local MCP subprocess. End-to-end cloud execution depends on successful subprocess startup, Linux compatibility, and valid API credentials.
 
-### Task
+---
 
-Extract Hindi text from an image and translate it into English.
+## 🧪 Demonstration — OCR + Translation
 
-**Input file:** `demo_inputs/sample_ocr.png`
+### User Instruction
+
+> Extract Hindi text from sample_ocr.png and translate it into English.
 
 ### Step 1 — OCR
 
-Tool: `extract_text`
+**Tool:** `extract_text`
 
-**Extracted text:**
+**Input:** `sample_ocr.png`
+
+**Language:** Hindi
+
+**Extracted Text:**
 
 ```text
 नमस्ते भारत
@@ -327,152 +541,277 @@ Tool: `extract_text`
 
 ### Step 2 — Translation
 
-Tool: `translate_text`
+**Tool:** `translate_text`
 
-**Translated text:**
+**Source Language:** Hindi
+
+**Target Language:** English
+
+**Translated Text:**
 
 ```text
 hello india
 ```
 
-### Execution Summary
+### Final Result
 
-| Metric | Result |
-|---|---|
-| Execution Status | Success |
-| Tools Executed | `extract_text`, `translate_text` |
-| Completed Steps | 2 |
-| Maximum Tool Calls | 2 |
-| Tool Calls Used | 2 |
-| Remaining Calls | 0 |
-| Final Translation | `hello india` |
+```text
+hello india
+```
 
-The live backend workflow completed successfully within its configured tool-call budget.
+### Execution Report
 
-### Demonstration Artifacts
+```json
+{
+  "status": "success",
+  "executed_tools": [
+    "extract_text",
+    "translate_text"
+  ],
+  "completed_steps": 2,
+  "budget": {
+    "max_tool_calls": 2,
+    "tool_calls_used": 2,
+    "remaining": 0,
+    "budget_exhausted": true
+  }
+}
+```
 
-- `demo_inputs/sample_ocr.png` — OCR sample input
-- `demo_outputs/report.json` — Structured execution report
-- `demo_outputs/result.md` — Human-readable summary
-- `demo_outputs/trace.jsonl` — Execution trace
+This workflow was successfully demonstrated using the local backend.
 
-## 📊 Execution Budget and Cost Tracking
+---
 
-OmniAgent supports a configurable maximum number of MCP tool-call attempts.
+## 📊 Execution Budget Management
+
+OmniAgent AI supports tool-call budgeting to control execution.
 
 For example:
 
 ```text
---max-tool-calls 2
+Maximum Tool Calls: 2
 ```
 
-The budget includes retry attempts.
+The agent can perform up to two tool-call attempts within the configured budget.
 
-The application also records:
+### Example
 
-- Total tool calls
-- Calls grouped by tool
-- Known costs when available
-- Calls with unknown pricing
-- Whether cost reporting is complete
+| Metric | Value |
+|---|---:|
+| Maximum Tool Calls | 2 |
+| Used Tool Calls | 2 |
+| Remaining Calls | 0 |
+| Completed Steps | 2 |
+| Execution Status | Success |
 
-**A successful workflow can exhaust its tool-call budget without being considered a failure.**
+The budget prevents additional tool calls once the configured limit is reached.
 
-Actual INR spending is not guaranteed when provider pricing information is unavailable. The project does not enforce a monetary spending ceiling.
+**Note:** Tool-call budgets do not represent monetary spending limits.
 
-## 📋 Reporting and Tracing
+---
 
-OmniAgent generates three primary artifacts.
+## 💰 Cost Tracking
 
-### `report.json`
+OmniAgent records tool usage and available cost information.
 
-Contains task information, execution status, completed steps, tool responses, budget usage, and cost metadata.
+Tracked fields include:
 
-### `result.md`
+- Total tool calls.
+- Tool calls grouped by service.
+- Known costs in INR.
+- Calls with unknown pricing.
+- Cost completeness.
 
-Provides a readable summary of the execution and results.
+When pricing information is unavailable, OmniAgent marks the corresponding costs as unknown instead of assuming they are free.
 
-### `trace.jsonl`
+This improves transparency in AI workflow execution.
 
-Records execution events including planning, tool calls, tool results, and completion.
+---
 
-Execution traces may include user-provided content. Review them before sharing publicly.
+## 📄 Reporting and Tracing
 
-## ✅ Testing and Validation
+OmniAgent generates structured execution artifacts.
 
-Run the offline regression suite:
+### 1. JSON Report
+
+`report.json`
+
+Contains:
+
+- Original task.
+- Execution status.
+- Executed tools.
+- Completed steps.
+- Tool arguments and responses.
+- Budget consumption.
+- Cost metadata.
+
+### 2. Markdown Summary
+
+`result.md`
+
+Provides a human-readable overview of the execution.
+
+### 3. JSONL Trace
+
+`trace.jsonl`
+
+Records execution events for debugging, auditing, and workflow analysis.
+
+Reports may include user-submitted content and should be reviewed before sharing.
+
+---
+
+## 🧪 Testing and Validation
+
+The project includes offline regression tests for core agent functionality.
+
+Run:
 
 ```bash
 python run_tests.py
 ```
 
-### Latest Verified Offline Test Results
+### Recorded Test Results
 
-| Test Suite | Passed Checks |
+| Test Suite | Passed |
 |---|---:|
-| `test_audio.py` | 5 |
-| `test_chunked_transcription.py` | 4 |
-| `test_transcription_mcp.py` | 9 |
-| `test_agent_chunk_routing.py` | 5 |
-| `test_planner_retry.py` | 5 |
+| Audio Processing | 5 |
+| Chunked Transcription | 4 |
+| Transcription MCP | 9 |
+| Agent Chunk Routing | 5 |
+| Planner Retry | 5 |
 | **Total** | **28** |
 
-All 28 offline checks passed in the recorded test run.
+**28/28 offline checks passed** in the recorded local test run.
 
-Additional live verification has demonstrated successful OCR-to-translation and Hindi WAV transcription workflows.
+### Additional Verified Workflows
 
-Hosted Streamlit execution requires separate validation after deployment.
+- Hindi image OCR.
+- Hindi-to-English translation.
+- OCR-to-translation tool chaining.
+- Hindi WAV transcription.
+- Structured report generation.
+- Tool-call budget enforcement.
 
-## 🔒 Security Considerations
+These results demonstrate local backend functionality. The hosted Streamlit deployment should be tested separately.
 
-- Store API credentials in environment variables or Streamlit Secrets.
-- Never commit `.env` files or real credentials.
-- Restrict file access to configured input directories.
-- Avoid uploading sensitive documents or recordings to public demonstrations.
-- Review execution traces and reports before publishing them.
-- Monitor provider quotas and usage.
-- Use appropriate authentication and abuse protection before offering unrestricted public access.
+---
+
+## 🔐 Security and Reliability
+
+OmniAgent AI incorporates several development safeguards:
+
+- Environment-based API configuration.
+- No hardcoded API credentials required.
+- Tool-call budgeting.
+- Retry handling.
+- File upload restrictions in Streamlit.
+- Structured error reporting.
+- Execution traces for debugging.
+
+### Security Recommendations
+
+For public deployments:
+
+1. Keep API credentials in Streamlit Secrets.
+2. Never expose private keys in GitHub.
+3. Avoid uploading sensitive documents.
+4. Monitor API quotas and usage.
+5. Review logs before sharing.
+6. Implement authentication and rate limiting for unrestricted public access.
+
+---
 
 ## ⚠️ Known Limitations
 
-1. Live AI workflows require valid Gemini and Bodhan AI credentials.
-2. Provider quotas and network failures may interrupt execution.
-3. LLM tool selection may not always produce the intended workflow.
-4. WAV is the supported audio upload format in the Streamlit interface.
-5. Execution budgets limit tool calls, not monetary spending.
-6. Some interface translations fall back to English.
-7. Public deployment requires verification of MCP subprocess behavior on Linux.
-8. Generated reports and traces may contain user-submitted information.
+- AI execution requires valid external API credentials.
+- OCR quality depends on image clarity and supported languages.
+- Speech transcription depends on audio quality.
+- Translation accuracy varies by language and context.
+- Gemini may occasionally select an unintended tool.
+- Tool-call limits do not enforce financial spending limits.
+- Some interface translations use English fallbacks.
+- The Streamlit UI currently accepts WAV audio uploads.
+- Public deployment requires ongoing API quota monitoring.
+- Hosted MCP execution must be verified independently.
 
-## 📈 Project Status
+---
 
-**Implemented and locally demonstrated:**
+## 🔮 Future Enhancements
 
-- Gemini-powered agent planning
-- Bodhan MCP tool integration
-- Multilingual OCR and translation
-- Speech transcription
-- Speech generation tool integration
-- Multi-step workflow orchestration
-- Tool-call budgeting
-- Retry handling
-- WAV audio chunking
-- Structured reports and traces
-- Cost visibility
-- Streamlit user interface
-- Offline regression testing
+Potential future improvements include:
 
-**Remaining verification:** Successful end-to-end execution on Streamlit Community Cloud.
+- PDF document processing.
+- Additional audio formats.
+- Multilingual conversational memory.
+- Persistent workflow history.
+- Enhanced agent observability.
+- Authentication and user accounts.
+- Per-user API usage limits.
+- Improved cost estimation.
+- Additional specialized MCP tools.
+- Cloud-native MCP deployment.
+- Workflow visualization.
+- Batch document processing.
+
+---
+
+## 🎯 Project Outcomes
+
+OmniAgent AI demonstrates practical experience in:
+
+- Agentic AI architecture.
+- LLM-based tool selection.
+- Model Context Protocol integration.
+- Multimodal processing.
+- Multilingual AI services.
+- API integration.
+- Asynchronous Python.
+- Workflow orchestration.
+- Retry and budget management.
+- Structured reporting.
+- Streamlit application development.
+- GitHub-based deployment.
+
+The project illustrates how a general-purpose LLM can coordinate specialized AI services to complete real-world multilingual tasks.
+
+---
 
 ## 👨‍💻 Developer
 
 **Samir More**
 
-B.Tech — Computer Science & Engineering (Artificial Intelligence & Analytics)
+B.Tech — Computer Science & Engineering  
+Artificial Intelligence & Analytics
 
-- [GitHub](https://github.com/samirmore7)
-- [Portfolio](https://samirmoreportfolio.netlify.app/)
+**GitHub:** https://github.com/samirmore7
+
+**Portfolio:** https://samirmoreportfolio.netlify.app/
+
+**Project Repository:** https://github.com/samirmore7/OmniAgentAI
+
+**Live Application:** https://omniagentai.streamlit.app/
 
 ---
 
-**OmniAgent AI — Bridging intelligent agent orchestration and multilingual AI through Gemini, Bodhan AI, and MCP.**
+## ⭐ Support
+
+If you find this project useful, consider starring the repository.
+
+Contributions, suggestions, and feedback are welcome.
+
+---
+
+<p align="center">
+  <strong>OmniAgent AI</strong>
+</p>
+
+<p align="center">
+  Bridging intelligent agent orchestration and multilingual AI
+  through Gemini, Bodhan AI, and MCP.
+</p>
+
+<p align="center">
+  Built with Python • Powered by Gemini & Bodhan AI • Deployed on Streamlit
+</p>
